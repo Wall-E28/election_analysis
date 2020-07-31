@@ -8,10 +8,15 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 # Create a filename variable to a direct path to a file
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
-#Create variables for voting 
+# Create variables for voting 
 total_votes = 0
 candidate_options = []
 candidate_votes = {}
+
+# Create variables for winning candidate
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
 
 # Open Election Results
 with open(file_to_load, 'r') as election_data:
@@ -48,13 +53,34 @@ for candidate_name in candidate_votes:
     
     # Calculate the percentage of votes.
     vote_percentage = float(votes) / float(total_votes) * 100
-    
-    # Print the candidate name and percentage of votes.
-    print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
 
-#Print election variables
-print(total_votes)
-print(candidate_votes)
+    # # Print the candidate name and percentage of votes.
+    # print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
+
+    # Determine Winning Candidate
+    # Determine if votes is greater than winning count
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
+        
+        # If True, set winning count = votes, winning percentage = vote percentage,
+        # and set winning candidate = candidate name
+        winning_count = votes
+        winning_percentage = vote_percentage
+        winning_candidate = candidate_name
+
+# Print results 
+    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+
+winning_candidate_summary = (
+    f"-------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"-------------------------\n")
+print(winning_candidate_summary)
+
+# #Print election variables
+# print(total_votes)
+# print(candidate_votes)
 
 # # Open file
 # with open(file_to_save, 'w') as election_analysis_file:
