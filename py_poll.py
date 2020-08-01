@@ -56,7 +56,7 @@ with open(file_to_load, 'r') as election_data:
         if county_name not in county_options:
 
             # Add unique county name to county list
-            county_options.append(county_name)
+            county_options.append(county_name) 
 
             # Track votes for each county
             county_votes[county_name] = 0
@@ -72,7 +72,7 @@ with open(file_to_save, 'w') as election_analysis_file:
         f"-------------------------\n\n"
         f"County Votes:\n")
 
-    # print(election_results, end="")   
+    print(election_results, end="")   
     
     # Save the final vote count to the text file.
     election_analysis_file.write(election_results)
@@ -90,7 +90,7 @@ with open(file_to_save, 'w') as election_analysis_file:
 
         # Write the county name and percentage of votes
         county_results = (f"{county_name}: {vote_percentage_1:.1f}% ({votes_1:,})\n")
-        # print(county_results)
+        print(county_results)
         election_analysis_file.write(county_results)
 
         # Determine winning county
@@ -106,8 +106,8 @@ with open(file_to_save, 'w') as election_analysis_file:
         f"\n"
         f"-------------------------\n"
         f"Largest County Turnout: {winning_county}\n"
-        f"-------------------------\n\n")
-    # print(winning_county_summary)
+        f"-------------------------\n")
+    print(winning_county_summary)
     election_analysis_file.write(winning_county_summary)
 
     # Determine the percentage of votes for each candidate by looping through the counts.
@@ -121,8 +121,8 @@ with open(file_to_save, 'w') as election_analysis_file:
         vote_percentage_2 = float(votes_2) / float(total_votes) * 100
 
         # Write the candidate name and percentage of votes.
-        candidate_results = (f"{candidate_name}: {vote_percentage_2:.1f}% ({votes_2:,})\n\n")
-        # print(candidate_results)
+        candidate_results = (f"{candidate_name}: {vote_percentage_2:.1f}% ({votes_2:,})\n")
+        print(candidate_results)
         election_analysis_file.write(candidate_results)
 
         # Determine winning candidate
@@ -142,5 +142,5 @@ with open(file_to_save, 'w') as election_analysis_file:
         f"Winning Vote Count: {winning_count:,}\n"
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"-------------------------\n")
-    # print(winning_candidate_summary)
+    print(winning_candidate_summary)
     election_analysis_file.write(winning_candidate_summary)
