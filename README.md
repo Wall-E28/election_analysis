@@ -1,4 +1,4 @@
-# election_analysis
+# Election Analysis
 
 ## Project Overview
 
