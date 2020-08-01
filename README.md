@@ -44,6 +44,8 @@ The Colorado Board of Elections has asked me to complete and audit of their loca
 7. Winner of congressional election:
     - Diana DeGette
 
+![Terminal Output from Analysis](https://github.com/Wall-E28/election_analysis/blob/master/Resources/py_poll_terminal_screenshot.png)
+
 ## Summary
 
 This script can be easily modified to fit any type of election. For example, if you wanted to analysis a federal congressional election, all you need to do is change the counties to states. Another example, if you had a local initiative election, all you need to do is change candidates to in favor or against.
